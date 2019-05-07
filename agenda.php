@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,10 +53,9 @@
   <!-- Header -->
   <header class="masthead bg-primary text-white text-center">
     <div class="container">
-      <img class="img-fluid mb-5 d-block mx-auto" src="logoiessineu-pobles.png" alt="">
-      <h1 class="text-uppercase mb-0">Agenda Virtual</h1>
       <hr class="star-light">
     </div>
+  
   </header>
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
