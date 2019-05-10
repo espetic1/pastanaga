@@ -23,6 +23,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
       
       // If result matched $myusername and $mypassword, table row must be 1 row
       if($count == 1) {
+          
+           while($row = $result->fetch_assoc()) {
+               
+               header("location: agenda.php?id=".$row["ID"]."&nom=".$row["NOM"]."&llinatges=".$row["LLINATGES"]);
+               
+            }
          header("location: agenda.php");
       }else {
          $error = "Contrasenya incorrecta <br>";

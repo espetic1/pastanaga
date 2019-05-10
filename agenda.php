@@ -1,3 +1,24 @@
+<?php
+$servername = "db5000047478.hosting-data.io";
+$database = "dbs42384";
+$username = "dbu113975";
+$password = "prueb@sTIC006";
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $database);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+
+$sql = "SELECT * FROM PROVA_USUARI";
+$result = $conn->query($sql);
+
+$id=$_GET['id'];
+$nom=$_GET['nom'];
+$llinatges=$_GET['llinatges'];
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,6 +75,25 @@
   <header class="masthead bg-primary text-white text-center">
     <div class="container">
       <hr class="star-light">
+      
+    <?php
+    
+    
+if ($result->num_rows > 0) {
+    echo "<table><tr><th>ID</th><th>NOM</th><th>LLINATGES</th><th>USUARI</th><th>CONTRASENYA</th></tr>";
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<tr><td>".$row["ID"]."</td><td>".$row["NOM"]."</td><td>".$row["LLINATGES"]."</td><td>".$row["USUARI"]."</td><td>".$row["CONTRASENYA"]."</td></tr>";
+    }
+    echo "</table>";
+} else {
+    echo "0 results";
+}
+
+
+
+?>  
+      
     </div>
   
   </header>
