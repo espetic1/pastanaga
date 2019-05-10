@@ -1,4 +1,35 @@
+<?php
+$servername = "db5000047478.hosting-data.io";
+$database = "dbs42384";
+$username = "dbu113975";
+$password = "prueb@sTIC006";
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $database);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
+
+
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+
+      $user=$_POST['username'];
+      $password=$_POST['password'];
+
+      $sql = "SELECT * FROM AGENDA_USUARI WHERE USUARI = '$user' and CONTRASENYA = '$password'";
+      $result = mysqli_query($conn,$sql);
+      $count = mysqli_num_rows($result);
+      
+      // If result matched $myusername and $mypassword, table row must be 1 row
+      if($count == 1) {
+         header("location: agenda.php");
+      }else {
+         $error = "Contrasenya incorrecta <br>";
+      }
+   }
+
+?>
 DOCTYPE html>
 <html lang="en">
 
