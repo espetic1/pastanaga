@@ -11,7 +11,7 @@ if (!$conn) {
 }
 
 
-$sql = "SELECT * FROM PROVA_USUARI";
+$sql = "SELECT DATA, HORA, COMENTARI * FROM AGENDA_ITEM";
 $result = $conn->query($sql);
 
 $id=$_GET['id'];
