@@ -19,7 +19,18 @@ $sql = "SELECT DATA, HORA, COMENTARI FROM AGENDA_ITEM WHERE IDUSUARI=".$id;
 $result = $conn->query($sql);
 
 
+if($_SERVER["REQUEST_METHOD"] == "POST") {
 
+      $data=$_GET['data'];
+      $hora=$_GET['hora'];
+      $comentari=$_GET['comentari'];
+
+      $sql = "INSERT INTO AGENDA_USUARI (DATA, HORA, COMENTARI)
+      VALUES ('$data', '$hora', '$comentari')";
+
+
+   }
+   
 ?>
 
 <!DOCTYPE html>
