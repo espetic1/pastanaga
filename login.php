@@ -29,7 +29,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                header("location: agenda.php?id=".$row["ID"]."&nom=".$row["NOM"]."&llinatges=".$row["LLINATGES"]);
                
             }
-         header("location: agenda.php");
+         
       }else {
          $error = "Contrasenya incorrecta <br>";
       }

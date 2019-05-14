@@ -10,13 +10,15 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-
-$sql = "SELECT DATA, HORA, COMENTARI * FROM AGENDA_ITEM";
-$result = $conn->query($sql);
-
 $id=$_GET['id'];
 $nom=$_GET['nom'];
 $llinatges=$_GET['llinatges'];
+
+
+$sql = "SELECT DATA, HORA, COMENTARI FROM AGENDA_ITEM WHERE IDUSUARI=".$id;
+$result = $conn->query($sql);
+
+
 
 ?>
 
@@ -80,10 +82,10 @@ $llinatges=$_GET['llinatges'];
     
     
 if ($result->num_rows > 0) {
-    echo "<table><tr><th>ID</th><th>NOM</th><th>LLINATGES</th><th>USUARI</th><th>CONTRASENYA</th></tr>";
+    echo "<table><tr><th> Data </th><th> Hora </th><th> Comentari </th></tr>";
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>".$row["ID"]."</td><td>".$row["NOM"]."</td><td>".$row["LLINATGES"]."</td><td>".$row["USUARI"]."</td><td>".$row["CONTRASENYA"]."</td></tr>";
+        echo "<tr><td>".$row["DATA"]."</td><td>".$row["HORA"]."</td><td>".$row["COMENTARI"]."</td></tr>";
     }
     echo "</table>";
 } else {
